@@ -12,7 +12,7 @@ const Home = () => {
     // file is coming from the imageuploader 
     const UploadImageHandler = async (file) => {
         setUploadImage(URL.createObjectURL(file));  //converting the file into URL
-        setloading(true);
+        setloading(true); 
         try {
             const enhancedURL = await enhancedImageAPI(file);
             setEnhancdImage(enhancedURL);
@@ -24,14 +24,14 @@ const Home = () => {
         }
     }
 
-
+// console.log(enhancdImage.image)
     return (
-
         <>
             <ImageUploader UploadImageHandler={UploadImageHandler} />
-            <Imagepreview loading={loading} uploadImage={uploadImage} enhancdImage={enhancdImage} />
+            <Imagepreview loading={loading} uploadImage={uploadImage} enhancdImage={enhancdImage?.image} />
         </>
     )
 }
+
 
 export default Home
